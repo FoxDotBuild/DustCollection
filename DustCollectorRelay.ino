@@ -8,7 +8,8 @@
  * Written by Doug Kimber
  */
 
-// This program is to be uploaded onto the ESP32 arduino. 
+// This program is to be uploaded onto the ESP32 arduino.
+// Board type is WEMOS LOLIN32 
 
 
 #include <WiFi.h>
@@ -117,6 +118,7 @@ void handleTelnet(){
     } else {
       TelnetServer.available().stop();  // have client, block new conections
       DisplayLine( "New Connect" );
+      Telnet = TelnetServer.available(); // ready for new client
     }
   }
 
@@ -157,7 +159,7 @@ void startAP()
   display.drawString( 0, Lines[ 1 ].offset, staticIP.toString() );
   display.display();
   
-  delay(4000); // ap delay
+  delay(1000); // ap delay
 }
 
 void StartDisplay()
@@ -247,9 +249,9 @@ void loop()
     Telnet.stop();
     WiFi.disconnect();
     startAP();   // startup is async
-    delay( 2000 );
+    delay( 1000 );
     TelnetServer.begin( );
-    delay( 2000 );
+    delay( 1000 );
     loopCount = 0; 
   }
 

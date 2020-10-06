@@ -8,7 +8,8 @@
  * Written by Doug Kimber
  */
 
-// This program is to be uploaded onto the ESP8266 arduino. 
+// This program is to be uploaded onto the ESP8266 arduino.
+// Board type is LOLIN(WEMOS) D1 R2 & mini 
 
 
 #include <ESP8266WiFi.h>
@@ -60,7 +61,7 @@ void ConnectWiFi()
 
   int i = 0;
   while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
-    delay(1000);
+    delay(100);
     Serial.print(++i); Serial.print(' ');
   }
 
@@ -69,13 +70,13 @@ void ConnectWiFi()
   Serial.print("IP address:\t");
   Serial.println( WiFi.localIP() );         // Send the IP address of the ESP8266 to the computer
 
-  delay( 4000 );
+  delay( 100 );
   ConnectTelnet(); 
 }
 void setup()
 {
   Serial.begin(115200);         // Start the Serial communication to send messages to the computer
-  delay(500);
+  delay(100);
   Serial.println('\n');
 
   // Make the On and Off pins inputs
@@ -116,7 +117,7 @@ void loop()
     delay( 1000 );
   }
 
-  delay( 1000 );
+  delay( 100 );
 
   
 
