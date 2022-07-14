@@ -226,6 +226,8 @@ void processLine()
     digitalWrite (RelayPin, HIGH);
   }
 
+  Telnet.stop();
+
   lineIdx = 0;
 }
 
