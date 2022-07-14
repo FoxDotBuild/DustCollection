@@ -194,6 +194,7 @@ void loop()
       GateServo.writeMicroseconds( 1000 );  // Close the blast gate
       Telnet.print( "Dusty\n");
     }
+    Telnet.print( "Dusty\n");
     CollectorOn = false;
   }
   
